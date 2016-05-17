@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.request.target.GlideDrawableImageViewTarget;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
@@ -16,6 +17,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnCircleImagen;
     private Button btnCenterCrop;
     private Button btnPlaceHolder;
+    private Button btnLoadGift;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -29,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         imgToShow = (ImageView)findViewById(R.id.imgToShow);
         btnLoadImage = (Button)findViewById(R.id.btnLoadImage);
+        btnLoadGift = (Button)findViewById(R.id.btnLoadGift);
         btnCircleImagen = (Button)findViewById(R.id.btnCircleImagen);
         btnCenterCrop = (Button)findViewById(R.id.btnCenterCrop);
         btnPlaceHolder = (Button)findViewById(R.id.btnPlaceHolder);
@@ -39,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnCircleImagen.setOnClickListener(this);
         btnCenterCrop.setOnClickListener(this);
         btnPlaceHolder.setOnClickListener(this);
+        btnLoadGift.setOnClickListener(this);
     }
 
     @Override
@@ -73,6 +79,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         .crossFade(1000)
                         .placeholder(R.drawable.placeholder)
                         .into(imgToShow);
+                break;
+            case R.id.btnLoadGift:
+               /*Glide.with(this)
+                        .load("https://i.imgur.com/NoFlnx9.gif")
+                        .asGif()
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .into(imgToShow);*/
+                GlideDrawableImageViewTarget imageViewTarget = new GlideDrawableImageViewTarget(imgToShow);
+                Glide.with(this).load("https://i.imgur.com/NoFlnx9.gif").into(imageViewTarget);
                 break;
         }
     }

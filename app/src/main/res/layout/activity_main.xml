@@ -51,8 +51,17 @@
         android:layout_height="wrap_content"
         android:text="Center Crop"
         android:id="@+id/btnCenterCrop"
-        android:layout_above="@+id/btnCircleImagen"
-        android:layout_alignRight="@+id/btnCircleImagen"
-        android:layout_alignEnd="@+id/btnCircleImagen"/>
+        android:layout_above="@+id/btnLoadImage"
+        android:layout_toRightOf="@+id/btnPlaceHolder"
+        android:layout_toEndOf="@+id/btnPlaceHolder"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="GIF"
+        android:id="@+id/btnLoadGift"
+        android:layout_alignTop="@+id/btnCenterCrop"
+        android:layout_toRightOf="@+id/btnCenterCrop"
+        android:layout_toEndOf="@+id/btnCenterCrop"/>
 
 </RelativeLayout>
